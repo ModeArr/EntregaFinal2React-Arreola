@@ -1,4 +1,4 @@
-import CartWidget from './CartWidget'
+import CartWidget from './Cart/CartWidget'
 import LogoSVG from '../assets/Logo-SVG.svg'
 import { NavLink, Link } from 'react-router-dom'
 import { getCategoriesUnique } from './helpers/GetProducts'
@@ -20,7 +20,7 @@ const NavBar = () => {
           </div>
           <div className=''>
             <ul className='flex items-center menu menu-horizontal'>
-              <Link to={"/"}><li className='sm:text-xl sm:mr-8 text-lg mr-5'><a href="#" className='text-gray-800 hover:text-gray-400 duration-500'>Productos</a></li></Link>
+              <Link to={"/"}><li className='sm:text-xl sm:mr-8 text-lg mr-5'><div href="#" className='text-gray-800 hover:text-gray-400 duration-500'>Productos</div></li></Link>
               <li className='dropdown sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 cursor-pointer'>
                 <details className=''>
                   <summary className=' hover:text-gray-400 duration-500'>Categorias</summary>
