@@ -28,7 +28,6 @@ export const CartProvider = ({children}) => {
     }
 
     const getTotalAmount = () => {
-        console.log("cart", cart)
         return cart.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0);
     }
 

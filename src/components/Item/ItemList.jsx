@@ -12,7 +12,7 @@ const ItemList = ({products}) => {
               title={prod.title}
               image={prod.image}
               price={prod.price}
-              rating={prod.rating.rate}
+              rating={prod.rating}
               categoria={prod.category}
             />
             )

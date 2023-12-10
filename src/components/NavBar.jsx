@@ -21,6 +21,7 @@ const NavBar = () => {
           <div className=''>
             <ul className='flex items-center menu menu-horizontal'>
               <Link to={"/"}><li className='sm:text-xl sm:mr-8 text-lg mr-5'><div href="#" className='text-gray-800 hover:text-gray-400 duration-500'>Productos</div></li></Link>
+              <Link to={"/adminpanel"} ><li className='sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 hover:text-gray-400 duration-500'>Admin</li></Link>
               <li className='dropdown sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 cursor-pointer'>
                 <details className=''>
                   <summary className=' hover:text-gray-400 duration-500'>Categorias</summary>
@@ -35,8 +36,8 @@ const NavBar = () => {
                 </ul>
                 </details>
               </li>
-{/*               <Link to={"/about"} ><li className='sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 hover:text-gray-400 duration-500'>Acerca</li></Link>
- */}            </ul>
+               
+           </ul>
           </div>
           <div>
             <Link to={"/cart"}> <CartWidget /> </Link> 
