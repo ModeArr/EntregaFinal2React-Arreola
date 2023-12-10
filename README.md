@@ -10,11 +10,11 @@ Este prevista es un ejemplo de una tienda con ReactRouter Dom implementado y var
 
 Tasklist proyecto final
 
-Implementar base datos Firebase [ ]
+Implementar base datos Firebase [x]
 
-Crear Admin para agregar productos [ ]
+Crear Admin para agregar productos [x]
 
-Implementar Admin para agregar productos [ ]
+Implementar Admin para agregar productos [x]
 
 Implementar Checkout.jsx [ ]
 

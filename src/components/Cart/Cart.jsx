@@ -3,11 +3,17 @@ import { CartContext } from "../context/CartContext"
 import { Link } from "react-router-dom"
 
 const Cart = () => {
-  const {cart, emptyCart, getTotalAmount} = useContext(CartContext)
+  const {cart, emptyCart, getTotalAmount, deleteProduct} = useContext(CartContext)
+  console.log(cart)
 
   const handleEmptyCart = () =>{
     emptyCart()
   }
+
+  const handleDeleteProduct = (id) =>{
+    deleteProduct(id)
+  }
+
   if (!cart.length){
     return (
       <div className="flex h-full w-full items-center justify-center container mx-auto mt-32 px-8">
@@ -41,7 +47,7 @@ const Cart = () => {
                           <div className="flex items-center space-x-4">
                             <p className="text-sm">Precio unidad {item?.price}</p>
                             <p className="text-sm">Precio total {item?.price * item?.cantidad} </p>
-                            <ion-icon onClick={() => handleEmptyCart()} className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500" name="close-outline" size="large"></ion-icon>
+                            <button onClick={() => handleDeleteProduct(item.id)}><ion-icon  className="h-5 w-5 cursor-pointer duration-150 hover: scale-105 text-red-500" name="close-outline" size="large"></ion-icon></button>
                           </div>
                         </div>
                       </div>
@@ -62,7 +68,7 @@ const Cart = () => {
               <div className="flex justify-between">
                 <p className="text-lg font-bold">Total</p>
                 <div className="">
-                  <p className="mb-1 text-lg font-bold">${getTotalAmount()} </p>
+                  <p className="mb-1 text-lg font-bold">${getTotalAmount() + 120} </p>
                   <p className="text-sm text-gray-700">Incluye impuestos</p>
                 </div>
               </div>
