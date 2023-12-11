@@ -3,9 +3,16 @@ import LogoSVG from '../assets/Logo-SVG.svg'
 import { NavLink, Link } from 'react-router-dom'
 import { getCategory } from './helpers/GetCategory'
 import { useEffect, useState } from 'react'
+import { UserAuth } from './context/AuthContext'
 
 const NavBar = () => {
   const [cats, setCat] = useState([])
+  const { user } = UserAuth()
+/*   const [user, setUser] = useState({})
+
+  useEffect(() => {
+    setUser(auth.currentUser)
+  }, [user]) */
 
   useEffect(() => {
     getCategory().then((cat) => setCat(cat))
@@ -40,10 +47,24 @@ const NavBar = () => {
            </ul>
           </div>
           <div className='flex justify-between items-center gap-5'>
-            <div className="avatar">
+{/*             <div className="avatar">
               <div className="rounded-full cursor-pointer text-gray-800 hover:text-gray-400 duration-500">
-              <ion-icon name="person-circle-outline" size="large"></ion-icon>
+              
               </div>
+            </div> */}
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img alt="profile picture" src="https://firebasestorage.googleapis.com/v0/b/tienda-mastergym.appspot.com/o/vecteezy_usuario-perfil-icono-perfil-avatar-usuario-icono_20911750.png?alt=media&token=a87c99c9-f4c8-4ed0-a129-3e5134ed7431" />
+                </div>
+              </div>
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"> 
+                {user && <NavLink to="/account"><li><a className='text-2xl'>Mi Cuenta</a></li></NavLink>}
+                {!user && <NavLink to="/signin"><li><a className='text-2xl'>Ingresar</a></li></NavLink>}
+                {!user && <NavLink to="/signup"><li><a className='text-2xl'>Registrarse</a></li></NavLink>}
+                {user && <NavLink to="/account"><li><a className='text-2xl'>Configurar</a></li></NavLink>}
+                {user && <li><a className='text-2xl'>Salir</a></li>}
+              </ul> 
             </div>
             <div>
               <Link to={"/cart"}> <CartWidget /> </Link> 

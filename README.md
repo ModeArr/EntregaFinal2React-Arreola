@@ -18,13 +18,16 @@ Implementar Admin para agregar productos [x]
 
 Implementar Checkout.jsx [ ]
 
-Crear Login en navbar [ ]
+Crear Login en navbar [x]
 
 Implementar login correo y Contraseña [ ]
 
 Implementar Firebase Ui para google y GitHub [ ]
 
+router privado login [ ]
+
 MEJORAR UI EXTRA:
+Agregar sweetalert apra alertas en vez de console.log 
 Agregar Carrusel fotos:
 -Implementar array en DB para guardar varias 	imágenes.
 - implementar carrusel en ITEM details con daisyui

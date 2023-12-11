@@ -3,7 +3,7 @@ import { ref, uploadBytes, getDownloadURL} from "firebase/storage";
 import { addDoc } from "firebase/firestore";
 import { storage, colRef } from "../firebase/config.js";
 import { v4 } from "uuid";
-import { getCategory } from "../helpers/GetCategory";
+import { getCategory } from "../helpers/GetCategory.js";
 
 const AddProduct = () => {
   const [imageUpload, setImageUpload] = useState(null);
@@ -17,7 +17,6 @@ const AddProduct = () => {
   useEffect(() => {
     getCategory().then((cat) => setCategorias(cat))
   }, []) 
-  console.log(categorias)
   //subir archivo
   const handleSubmit = async(e) => {
     e.preventDefault()
