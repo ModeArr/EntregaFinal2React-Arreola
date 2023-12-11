@@ -22,10 +22,10 @@ const DelCategory = () => {
 
   return (
     <div className="items-center">
-      <h2 className="pt-2 mb-10 text-center text-xl font-bold">Añade una Categoria</h2>
+      <h2 className="pt-2 mb-10 text-center text-xl font-bold">Borra una Categoria</h2>
       <div className="">
         <form className="flex flex-col items-center gap-5"  required onSubmit={handleSubmit}>
-        <select className="select select-bordered w-full max-w-xs" onChange= {(e) => {this.setState(setCategorias(e.target.getAttribute('data-key')))}}>
+        <select className="select select-bordered w-full max-w-xs" onChange= {(e) => {setCategorias(e.target.getAttribute('data-key'))}}>
             <option disabled selected>Categoria</option>
             {categorias.map((cat) => {
               return (

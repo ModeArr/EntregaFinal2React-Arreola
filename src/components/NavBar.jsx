@@ -1,13 +1,24 @@
 import CartWidget from './Cart/CartWidget'
 import LogoSVG from '../assets/Logo-SVG.svg'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { getCategory } from './helpers/GetCategory'
 import { useEffect, useState } from 'react'
 import { UserAuth } from './context/AuthContext'
 
 const NavBar = () => {
   const [cats, setCat] = useState([])
-  const { user } = UserAuth()
+  const { user, logOut } = UserAuth()
+  const navigate = useNavigate();
+
+  const handleLogout = async() => {
+    try {
+      await logOut();
+      navigate("/signin");
+      console.log("Logged out");
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
 /*   const [user, setUser] = useState({})
 
   useEffect(() => {
@@ -28,7 +39,7 @@ const NavBar = () => {
           <div className=''>
             <ul className='flex items-center menu menu-horizontal'>
               <Link to={"/"}><li className='sm:text-xl sm:mr-8 text-lg mr-5'><div href="#" className='text-gray-800 hover:text-gray-400 duration-500'>Productos</div></li></Link>
-              <Link to={"/adminpanel"} ><li className='sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 hover:text-gray-400 duration-500'>Admin</li></Link>
+              { user?.uid === "qAyh0zYD0wZjvhcvhFhvLSdtrrx1" && <Link to={"/adminpanel"} ><li className='sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 hover:text-gray-400 duration-500'>Admin</li></Link>}
               <li className='dropdown sm:text-xl sm:mr-8 text-lg mr-5 text-gray-800 cursor-pointer'>
                 <details className=''>
                   <summary className='hover:text-gray-400 duration-500'>Categorias</summary>
@@ -55,7 +66,7 @@ const NavBar = () => {
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt="profile picture" src="https://firebasestorage.googleapis.com/v0/b/tienda-mastergym.appspot.com/o/vecteezy_usuario-perfil-icono-perfil-avatar-usuario-icono_20911750.png?alt=media&token=a87c99c9-f4c8-4ed0-a129-3e5134ed7431" />
+                  <img alt="profile picture" src={user?.photoURL ? user.photoURL : "https://firebasestorage.googleapis.com/v0/b/tienda-mastergym.appspot.com/o/vecteezy_usuario-perfil-icono-perfil-avatar-usuario-icono_20911750.png?alt=media&token=a87c99c9-f4c8-4ed0-a129-3e5134ed7431"} />
                 </div>
               </div>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"> 
@@ -63,7 +74,7 @@ const NavBar = () => {
                 {!user && <NavLink to="/signin"><li><a className='text-2xl'>Ingresar</a></li></NavLink>}
                 {!user && <NavLink to="/signup"><li><a className='text-2xl'>Registrarse</a></li></NavLink>}
                 {user && <NavLink to="/account"><li><a className='text-2xl'>Configurar</a></li></NavLink>}
-                {user && <li><a className='text-2xl'>Salir</a></li>}
+                {user && <li><a className='text-2xl' onClick={ () => handleLogout()}>Salir</a></li>}
               </ul> 
             </div>
             <div>
