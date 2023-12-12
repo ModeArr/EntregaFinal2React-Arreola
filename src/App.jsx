@@ -4,7 +4,7 @@ import Cart from "./components/Cart/Cart";
 import ItemListContainer from "./components/Item/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import { CartProvider } from "./components/context/CartContext";
-import AdminPanel from "./components/Admin/AdminPanel";
+import AdminPanel from "./components/admin/AdminPanel";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import Account from "./components/auth/Account";
