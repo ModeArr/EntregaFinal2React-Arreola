@@ -16,7 +16,7 @@ Es una framework de Tailwind que inculuye varios componenetes que ayudan a menus
 * Auth: Se uso el Auth de Firebase para poder registrar e ingresar usuarios.
 
 
-### Tasklist proyecto final
+## Tasklist proyecto final
 
 Implementar base datos Firebase [x]
 
@@ -44,7 +44,7 @@ Control de errores que faltan [ ]
 
 cart conext refactor a metodo exportar [ ]
 
-##### MEJORAR EXTRA:
+#### MEJORAR EXTRA:
 - Agregar sweetalert apra alertas en vez de console.log 
 - Agregar Carrusel fotos:
 - Implementar array en DB para guardar varias 	imágenes.
