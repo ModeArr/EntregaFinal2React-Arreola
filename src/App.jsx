@@ -10,6 +10,7 @@ import SignUp from "./components/auth/SignUp";
 import Account from "./components/auth/Account";
 import { AuthContextProvider } from "./components/context/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import Checkout from "./components/Cart/Checkout";
 
 export const App = () => {
   return (
@@ -28,6 +29,7 @@ export const App = () => {
                 }/>
               <Route exact path="/" element={<ItemListContainer />} />
               <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/checkout" element={<Checkout />} />
               <Route
                 exact
                 path="/producto/:id"

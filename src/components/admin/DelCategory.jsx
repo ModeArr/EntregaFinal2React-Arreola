@@ -4,19 +4,21 @@ import { doc, deleteDoc } from "firebase/firestore"
 import { db } from "../firebase/config"
 
 const DelCategory = () => {
-    const [categorias, setCategorias] = useState([])
-    const [categoria, setCategoria] = useState("")
+    const [categories, setCategories] = useState([])
+    const [category, setCategory] = useState("")
 
     useEffect(() => {
-        getCategory().then((cat) => setCategorias(cat))
+        getCategory().then((cat) => setCategories(cat))
       }, []) 
+
+    console.log(category)
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log(categoria)
-        const docRef = doc(db, 'categorias', categoria)
-        deleteDoc(docRef).then(() => {
-            console.log(`Se borro la categoria ${categoria}`)
+        console.log(category)
+        const docRef = doc(db, 'categorias', category)
+        await deleteDoc(docRef).then(() => {
+            console.log(`Se borro la categoria ${category}`)
         })
     }
 
@@ -25,11 +27,11 @@ const DelCategory = () => {
       <h2 className="pt-2 mb-10 text-center text-xl font-bold">Borra una Categoria</h2>
       <div className="">
         <form className="flex flex-col items-center gap-5"  required onSubmit={handleSubmit}>
-        <select className="select select-bordered w-full max-w-xs" onChange= {(e) => {setCategorias(e.target.getAttribute('data-key'))}}>
+        <select className="select select-bordered w-full max-w-xs" onChange= {(e) => {setCategory(e.target.id)}}>
             <option disabled selected>Categoria</option>
-            {categorias.map((cat) => {
+            {categories.map((cat) => {
               return (
-                <option key={cat.id} data-key={cat.id} >{cat.categoria}</option>
+                <option key={cat.id} id={cat.id} >{cat.categoria}</option>
               )
             })}
           </select>

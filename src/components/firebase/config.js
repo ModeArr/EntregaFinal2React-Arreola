@@ -21,6 +21,7 @@ export const db = getFirestore()
 //collection ref
 export const colRef = collection(db, 'producto')
 export const colRefCat = collection(db, 'categorias')
+export const colRefOrder = collection(db, 'ordenes')
 
 //sotrage
 export const storage = getStorage(app);
