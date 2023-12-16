@@ -40,6 +40,22 @@ export const CartProvider = ({children}) => {
         setCart(newCart)
     }
 
+    const decrementCantidad = (id) => {
+        const newCart = [...cart]
+        const product = newCart.find((producto) => producto.id === id);
+        if (product.cantidad > 1){
+            product.cantidad -= 1
+        }
+        setCart(newCart)
+    }
+
+    const incrementCantidad = (id) => {
+        const newCart = [...cart]
+        const product = newCart.find((producto) => producto.id === id);
+        product.cantidad += 1
+        setCart(newCart)
+    }
+
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart])
@@ -52,7 +68,9 @@ export const CartProvider = ({children}) => {
             getQuantityCart,
             getTotalAmount,
             emptyCart,
-            deleteProduct
+            deleteProduct,
+            decrementCantidad,
+            incrementCantidad
         } }>
             {children}
         </CartContext.Provider>
