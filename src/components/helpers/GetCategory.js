@@ -7,6 +7,5 @@ export const getCategory = async() => {
     categorias.docs.forEach(doc => {
       p.push({ ...doc.data(), id: doc.id })
       })
-    console.log(p)
     return p
   }

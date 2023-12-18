@@ -31,12 +31,12 @@ const AddProduct = () => {
             price: price,
             rating: rating,
             description: description,
-            categoria: categoria
+            category: categoria
           }).then(() =>{
             console.log("Se subio el Producto a la db")
+            location.reload();
           })
         })
-
       })}else{
         console.log("Agrega una imagen");
       }
@@ -61,7 +61,7 @@ const AddProduct = () => {
           <input id="file" required type="file" className="file-input w-full max-w-xs" onChange={(e) => { setImageUpload(e.target.files[0])}}/>
           <textarea id="description" className="textarea textarea-bordered w-full max-w-xs" required placeholder="Descripción" onChange={(e) => { setDescription(e.target.value)}} />
 
-          <button type="submit" className="btn">Añadir Producto</button>
+          <button type="submit" className="btn btn-primary">Añadir Producto</button>
         </form>
       </div>
     </div>

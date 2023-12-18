@@ -13,6 +13,7 @@ const AddCategory = () => {
             categoria: categoria
           }).then(() =>{
             console.log("Se añadio la categoria")
+            location.reload();
           })
     }
 
@@ -22,7 +23,7 @@ const AddCategory = () => {
       <div className="">
         <form className="flex flex-col items-center gap-5"  required onSubmit={handleSubmit}>
           <input id="title" type="text" required placeholder="Titulo" className="input input-bordered w-full max-w-xs" onChange={(e) => { setCategoria(e.target.value)}}/>
-          <button type="submit" className="btn">Añadir Categoria</button>
+          <button type="submit" className="btn btn-primary">Añadir Categoria</button>
         </form>
       </div>
     </div>

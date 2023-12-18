@@ -42,7 +42,7 @@ const SignIn = () => {
         </div>
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium"> Password</label>
-          <input
+          <input autoComplete="on"
             onChange={(e) => setPassword(e.target.value)}
             className="border p-3"
             type="password"

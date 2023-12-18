@@ -15,11 +15,14 @@ const DelCategory = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log(category)
         const docRef = doc(db, 'categorias', category)
+        console.log(category)
         await deleteDoc(docRef).then(() => {
             console.log(`Se borro la categoria ${category}`)
-        })
+            location.reload();
+        }).catch((e => {
+          console.error(e);
+        }))
     }
 
   return (
@@ -27,15 +30,15 @@ const DelCategory = () => {
       <h2 className="pt-2 mb-10 text-center text-xl font-bold">Borra una Categoria</h2>
       <div className="">
         <form className="flex flex-col items-center gap-5"  required onSubmit={handleSubmit}>
-        <select className="select select-bordered w-full max-w-xs" onChange= {(e) => {setCategory(e.target.id)}}>
+        <select value={category} className="select select-bordered w-full max-w-xs" onChange= {(e) => {setCategory(e.target.value)}}>
             <option disabled selected>Categoria</option>
             {categories.map((cat) => {
               return (
-                <option key={cat.id} id={cat.id} >{cat.categoria}</option>
+                <option key={cat.id} value={cat.id} >{cat.categoria}</option>
               )
             })}
           </select>
-          <button type="submit" className="btn">Borrar Categoria</button>
+          <button type="submit" className="btn btn-primary">Borrar Categoria</button>
         </form>
       </div>
     </div>

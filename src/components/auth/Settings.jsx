@@ -41,16 +41,17 @@ const Settings = () => {
   return (
     <div>
       <h2 className="pt-2 mb-10 text-center text-xl font-bold">Configura tus datos</h2>
-      
-      <form onSubmit={handleEditName}>
-        <input type="text" required placeholder="Cambiar Nombre" onChange={(e) => {setNombre(e.target.value)}}/> 
-        <button type="submit" className="btn">Agregar</button>
-      </form>
+      <div className="flex flex-col gap-3">
+        <form onSubmit={handleEditName}>
+          <input className="input input-bordered w-full max-w-xs" type="text" required placeholder="Cambiar Nombre" onChange={(e) => {setNombre(e.target.value)}}/> 
+          <button type="submit" className="btn">Agregar</button>
+        </form>
 
-      <form onSubmit={handleSubirFoto}>
-        <input id="file" required type="file" className="file-input w-full max-w-xs" onChange={(e) => { setImageUpload(e.target.files[0])}}/>
-        <button type="submit" className="btn">Agregar Foto</button>
-      </form>
+        <form onSubmit={handleSubirFoto}>
+          <input className="file-input file-input-bordered w-full max-w-xs" id="file" required type="file" onChange={(e) => { setImageUpload(e.target.files[0])}}/>
+          <button type="submit" className="btn">Agregar Foto</button>
+        </form>
+      </div>
     </div>
   )
 }
